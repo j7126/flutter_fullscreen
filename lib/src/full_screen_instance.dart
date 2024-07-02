@@ -32,7 +32,8 @@ import 'package:window_manager/window_manager.dart';
 /// FullScreen default platform handler.
 /// This should not be used directly, instead use [FullScreen].
 class FullScreenInstance with WindowListener {
-  final ObserverList<FullScreenListener> _eventListeners = ObserverList<FullScreenListener>();
+  final ObserverList<FullScreenListener> _eventListeners =
+      ObserverList<FullScreenListener>();
 
   bool _state = false;
   SystemUiMode? _systemUiMode;
@@ -86,13 +87,16 @@ class FullScreenInstance with WindowListener {
         if (state) {
           SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
         } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+              overlays: SystemUiOverlay.values);
         }
       } else {
         if (state) {
-          SystemChrome.setEnabledSystemUIMode(systemUiMode, overlays: systemUiOverlays);
+          SystemChrome.setEnabledSystemUIMode(systemUiMode,
+              overlays: systemUiOverlays);
         } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+              overlays: SystemUiOverlay.values);
         }
       }
       _onStateChanged(state, systemUiMode);

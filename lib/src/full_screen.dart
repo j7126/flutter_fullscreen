@@ -34,8 +34,10 @@ import 'package:flutter_fullscreen/src/full_screen_instance.dart'
 /// Manages full-screen.
 class FullScreen {
   static const bool supportWeb = kIsWeb;
-  static final bool supportWindowManager = !supportWeb && (Platform.isLinux || Platform.isWindows || Platform.isMacOS);
-  static final bool supportMobile = !supportWeb && (Platform.isAndroid || Platform.isIOS);
+  static final bool supportWindowManager = !supportWeb &&
+      (Platform.isLinux || Platform.isWindows || Platform.isMacOS);
+  static final bool supportMobile =
+      !supportWeb && (Platform.isAndroid || Platform.isIOS);
 
   static bool _initialized = false;
 

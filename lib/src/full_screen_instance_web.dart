@@ -45,7 +45,8 @@ extension on Document {
 /// FullScreen web platform handler.
 /// This should not be used directly, instead use [FullScreen].
 class FullScreenInstance {
-  final ObserverList<FullScreenListener> _eventListeners = ObserverList<FullScreenListener>();
+  final ObserverList<FullScreenListener> _eventListeners =
+      ObserverList<FullScreenListener>();
 
   bool _state = false;
   bool _fullScreenForced = false;
@@ -83,7 +84,8 @@ class FullScreenInstance {
 
   void _handleResize() async {
     await Future.delayed(const Duration(milliseconds: 100));
-    var isForced = window.screen.width == window.outerWidth && window.screen.height == window.outerHeight;
+    var isForced = window.screen.width == window.outerWidth &&
+        window.screen.height == window.outerHeight;
     var prev = fullScreenForced;
     if (isForced != _fullScreenForced) {
       _fullScreenForced = isForced;
@@ -100,7 +102,9 @@ class FullScreenInstance {
       const EventStreamProvider<Event>('fullscreenchange')
           .forElement(window.document.documentElement!)
           .listen((_) => _handleFullScreenChange());
-      const EventStreamProvider<Event>('resize').forTarget(window).listen((_) => _handleResize());
+      const EventStreamProvider<Event>('resize')
+          .forTarget(window)
+          .listen((_) => _handleResize());
     }
   }
 
