@@ -26,7 +26,7 @@ dependencies:
 ### Initialization
 
 ```dart
-import 'package:flutter_fullscreen/full_screen.dart';
+import 'package:flutter_fullscreen/flutter_fullscreen.dart';
 
 void main() async {
     // ensure these two lines are added to main
@@ -52,7 +52,7 @@ FullScreen.setFullScreen(false);
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_chrome.dart';
-import 'package:flutter_fullscreen/full_screen.dart';
+import 'package:flutter_fullscreen/flutter_fullscreen.dart';
 
 class Page extends StatefulWidget {
   const Page({super.key});
