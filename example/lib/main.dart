@@ -1,5 +1,5 @@
 /*
-full_screen
+flutter_fullscreen
 
 Copyright (c) 2024 Jefferey Neuffer <jeff@jefferey.dev>
 
@@ -24,7 +24,7 @@ SOFTWARE.
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_chrome.dart';
-import 'package:full_screen/full_screen.dart';
+import 'package:flutter_fullscreen/flutter_fullscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

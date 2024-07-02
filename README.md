@@ -18,7 +18,7 @@ Add to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  full_screen: ^1.0.0
+  flutter_fullscreen: ^1.0.0
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ dependencies:
 ### Initialization
 
 ```dart
-import 'package:full_screen/full_screen.dart';
+import 'package:flutter_fullscreen/full_screen.dart';
 
 void main() async {
     // ensure these two lines are added to main
@@ -52,7 +52,7 @@ FullScreen.setFullScreen(false);
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter/src/services/system_chrome.dart';
-import 'package:full_screen/full_screen.dart';
+import 'package:flutter_fullscreen/full_screen.dart';
 
 class Page extends StatefulWidget {
   const Page({super.key});

@@ -1,5 +1,5 @@
 /*
-full_screen
+flutter_fullscreen
 
 Copyright (c) 2024 Jefferey Neuffer <jeff@jefferey.dev>
 
@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-library full_screen;
+library flutter_fullscreen;
 
 export 'src/full_screen_listener.dart';
 export 'src/full_screen.dart';

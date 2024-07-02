@@ -1,5 +1,5 @@
 /*
-full_screen
+flutter_fullscreen
 
 Copyright (c) 2024 Jefferey Neuffer <jeff@jefferey.dev>
 
@@ -25,8 +25,8 @@ SOFTWARE.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'package:full_screen/src/full_screen_listener.dart';
-import 'package:full_screen/src/full_screen.dart';
+import 'package:flutter_fullscreen/src/full_screen_listener.dart';
+import 'package:flutter_fullscreen/src/full_screen.dart';
 import 'package:window_manager/window_manager.dart';
 
 /// FullScreen default platform handler.

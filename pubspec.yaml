@@ -1,7 +1,7 @@
-name: full_screen
+name: flutter_fullscreen
 description: "Allow setting and listening to fullscreen state on all platforms."
 version: 1.0.0
-homepage: https://github.com/j7126/flutter_full_screen
+homepage: https://github.com/j7126/full_screen
 
 environment:
   sdk: '>=3.4.3 <4.0.0'

@@ -1,5 +1,5 @@
 /*
-full_screen
+flutter_fullscreen
 
 Copyright (c) 2024 Jefferey Neuffer <jeff@jefferey.dev>
 
