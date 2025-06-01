@@ -18,7 +18,7 @@ Add to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_fullscreen: ^1.1.0
+  flutter_fullscreen: ^1.2.0
 ```
 
 ## Usage

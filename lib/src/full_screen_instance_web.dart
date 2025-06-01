@@ -32,13 +32,14 @@ import 'package:flutter_fullscreen/src/full_screen_listener.dart';
 import 'package:flutter_fullscreen/src/full_screen.dart';
 
 extension on Element {
-  // ignore: unused_element
+  // ignore: unused_element, unused_element_parameter
   external JSPromise<JSAny?> requestFullscreen([JSObject options]);
 }
 
 extension on Document {
-  // ignore: unused_element
+  // ignore: unused_element, unused_element_parameter
   external JSPromise<JSAny?> exitFullscreen([JSObject options]);
+  // ignore: unused_element
   external Element? get fullscreenElement;
 }
 
