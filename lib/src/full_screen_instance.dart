@@ -27,13 +27,12 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_fullscreen/src/full_screen_listener.dart';
 import 'package:flutter_fullscreen/src/full_screen.dart';
-import 'package:window_manager/window_manager.dart';
+import 'package:nativeapi/nativeapi.dart';
 
 /// FullScreen default platform handler.
 /// This should not be used directly, instead use [FullScreen].
-class FullScreenInstance with WindowListener {
-  final ObserverList<FullScreenListener> _eventListeners =
-      ObserverList<FullScreenListener>();
+class FullScreenInstance {
+  final ObserverList<FullScreenListener> _eventListeners = ObserverList<FullScreenListener>();
 
   bool _state = false;
   SystemUiMode? _systemUiMode;
@@ -43,6 +42,11 @@ class FullScreenInstance with WindowListener {
   SystemUiMode? get systemUiMode => _systemUiMode;
 
   FullScreenInstance();
+
+  Window? _window;
+  Window? get _currentWindow {
+    return _window ??= WindowManager.instance.getCurrent();
+  }
 
   void _onStateChanged(bool state, SystemUiMode? systemUiMode) {
     if (_state != state || _systemUiMode != systemUiMode) {
@@ -61,9 +65,8 @@ class FullScreenInstance with WindowListener {
 
   Future ensureInitialized() async {
     if (FullScreen.supportWindowManager) {
-      await windowManager.ensureInitialized();
-      windowManager.addListener(this);
-      _state = await windowManager.isFullScreen();
+      WindowManager.instance.addListener(onWindowEvent);
+      _state = _currentWindow?.isFullScreen ?? false;
     }
   }
 
@@ -87,31 +90,26 @@ class FullScreenInstance with WindowListener {
         if (state) {
           SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
         } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-              overlays: SystemUiOverlay.values);
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
         }
       } else {
         if (state) {
-          SystemChrome.setEnabledSystemUIMode(systemUiMode,
-              overlays: systemUiOverlays);
+          SystemChrome.setEnabledSystemUIMode(systemUiMode, overlays: systemUiOverlays);
         } else {
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-              overlays: SystemUiOverlay.values);
+          SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
         }
       }
       _onStateChanged(state, systemUiMode);
     } else if (FullScreen.supportWindowManager) {
-      windowManager.setFullScreen(state);
+      _currentWindow?.isFullScreen = state;
     }
   }
 
-  @override
-  void onWindowEnterFullScreen() {
-    _onStateChanged(true, null);
-  }
-
-  @override
-  void onWindowLeaveFullScreen() {
-    _onStateChanged(false, null);
+  void onWindowEvent(WindowEvent event) {
+    if (event is WindowEnteredFullScreenEvent) {
+      _onStateChanged(true, null);
+    } else if (event is WindowExitedFullScreenEvent) {
+      _onStateChanged(false, null);
+    }
   }
 }

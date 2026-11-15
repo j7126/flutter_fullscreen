@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import 'package:flutter/material.dart';
-import 'package:flutter/src/services/system_chrome.dart';
+import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_fullscreen/flutter_fullscreen.dart';
 
 void main() async {

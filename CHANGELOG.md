@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Migrate from windowmanager to nativeapi backend for desktop platforms
+
 ## 1.2.0
 
 * Upgrade dependencies

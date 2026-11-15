@@ -22,7 +22,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-library flutter_fullscreen;
-
 export 'src/full_screen_listener.dart';
 export 'src/full_screen.dart';
